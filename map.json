@@ -1,0 +1,12 @@
+{
+	"_comment": "Movement data compares with available tiles. Tiles size must be equal to movement costs size!!!",
+
+    "availableTiles": ["S", "W", "T", "P"],
+
+    "raceData": {
+        "Human": [5, 2, 3, 1],
+        "Swamper": [2, 2, 5, 2],
+        "Woodman": [3, 3, 2, 2]
+    }
+
+}
