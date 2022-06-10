@@ -9,7 +9,18 @@ public class Application {
     public static void main(String[] args) {
         log.info("Application start.");
 
+        String mapString =
+                        "SWWS" +
+                        "TTPP" +
+                        "TPTT" +
+                        "PWPP";
+        String race = "Human";
 
+        try {
+            log.info("The shortest way cost is {}", Solution.getResult(mapString, race));
+        } catch (RuntimeException exception) {
+            log.error("{}", exception.getMessage(), exception);
+        }
 
         log.info("Application end.");
     }
