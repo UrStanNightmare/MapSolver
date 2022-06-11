@@ -27,8 +27,8 @@ public class PriorityVertex implements Comparable<PriorityVertex> {
     @Override
     public String toString() {
         return "PriorityVertex{" +
-                "index=" + index +
-                ", priority=" + priority +
+                "index=" + this.index +
+                ", priority=" + this.priority +
                 '}';
     }
 

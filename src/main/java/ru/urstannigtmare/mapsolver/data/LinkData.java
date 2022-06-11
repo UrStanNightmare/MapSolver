@@ -12,11 +12,11 @@ public class LinkData {
     }
 
     public int getVertexNumber() {
-        return vertexNumber;
+        return this.vertexNumber;
     }
 
     public int getMovementCost() {
-        return movementCost;
+        return this.movementCost;
     }
 
     @Override
@@ -28,19 +28,19 @@ public class LinkData {
             return false;
         }
         LinkData linkData = (LinkData) o;
-        return vertexNumber == linkData.vertexNumber && movementCost == linkData.movementCost;
+        return this.vertexNumber == linkData.vertexNumber && this.movementCost == linkData.movementCost;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vertexNumber, movementCost);
+        return Objects.hash(this.vertexNumber, this.movementCost);
     }
 
     @Override
     public String toString() {
         return "{" +
-                "connectsWith: " + vertexNumber +
-                ", costs=" + movementCost +
+                "connectsWith: " + this.vertexNumber +
+                ", costs=" + this.movementCost +
                 '}';
     }
 }

@@ -33,7 +33,7 @@ public class PathFinder {
         HashMap<Integer, Integer> costsSoFar = new HashMap<>();
         costsSoFar.put(LEFT_TOP_CORNER_VERTEX_INDEX, 0);
 
-        int goal = holder.getBottomRightCornerVertexIndex();
+        int goal = this.holder.getBottomRightCornerVertexIndex();
 
         while (!checkQueue.isEmpty()) {
             int current = checkQueue.poll().getIndex();
@@ -47,7 +47,7 @@ public class PathFinder {
                 if (!cameFrom.containsKey(link.getVertexNumber()) || newCost < costsSoFar.get(link.getVertexNumber())) {
                     costsSoFar.put(link.getVertexNumber(), newCost);
                     checkQueue.add(new PriorityVertex(link.getVertexNumber(), newCost +
-                            holder.heuristic(holder.getBottomRightCornerVertexIndex(), link.getVertexNumber())));
+                            this.holder.heuristic(this.holder.getBottomRightCornerVertexIndex(), link.getVertexNumber())));
                     cameFrom.put(link.getVertexNumber(), current);
                 }
             }
@@ -56,7 +56,7 @@ public class PathFinder {
 
         logPath(cameFrom);
 
-        return costsSoFar.get(holder.getBottomRightCornerVertexIndex());
+        return costsSoFar.get(this.holder.getBottomRightCornerVertexIndex());
 
     }
 
@@ -71,9 +71,9 @@ public class PathFinder {
     }
 
     private void logPath(HashMap<Integer, Integer> cameFrom) {
-        String path = String.valueOf(holder.getBottomRightCornerVertexIndex());
+        String path = String.valueOf(this.holder.getBottomRightCornerVertexIndex());
 
-        Integer currIndex = getFromIndex(holder.getBottomRightCornerVertexIndex(), cameFrom);
+        Integer currIndex = getFromIndex(this.holder.getBottomRightCornerVertexIndex(), cameFrom);
 
         while (currIndex != -1) {
             path = path + "<-" + currIndex;

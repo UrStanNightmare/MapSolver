@@ -13,11 +13,11 @@ public class MovementData {
     }
 
     public Map<String, Integer> getMovementData() {
-        return movementData;
+        return this.movementData;
     }
 
     public List<String> getAvailableTiles() {
-        return availableTiles;
+        return this.availableTiles;
     }
 
     public String getAvailableTilesString() {
