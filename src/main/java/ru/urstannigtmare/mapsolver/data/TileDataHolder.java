@@ -24,7 +24,7 @@ public class TileDataHolder {
 
         this.tilesString = mapString;
 
-        log.info("Map size is {}x{}", dimension, dimension);
+        log.info("Map size is {}x{}", this.dimension, this.dimension);
 
 
     }
@@ -55,15 +55,17 @@ public class TileDataHolder {
 
     /**
      * Возвращает симлинк конкретного тайла по индексу в строке карты.
+     *
      * @param index индекс тайла в строке карты.
      * @return симлинк тайла.
      */
     private String getTileSymLinkByIndex(int index) {
-        return tilesString.substring(index, index + 1);
+        return this.tilesString.substring(index, index + 1);
     }
 
     /**
      * Возвращает стоимость перемещения в указанный по индексу тайл.
+     *
      * @param index индекс тайла в который будет происходить перемещение.
      * @return стоимость перемещения в указанный тайл.
      */

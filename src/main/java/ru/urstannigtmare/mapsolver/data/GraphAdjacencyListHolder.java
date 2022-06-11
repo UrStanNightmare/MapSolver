@@ -27,7 +27,7 @@ public class GraphAdjacencyListHolder {
     private static final int MAX_LINKS = 4;
 
     private List<List<LinkData>> vertexLinksList;
-    private int dimension;
+    private final int dimension;
 
     public GraphAdjacencyListHolder(TileDataHolder tileDataHolder) {
         this.dimension = tileDataHolder.getDimension();
@@ -36,7 +36,7 @@ public class GraphAdjacencyListHolder {
 
         this.initializeVertexLinksList(vertexCount);
 
-        this.fillVertexListWithConnections(vertexCount, dimension, tileDataHolder);
+        this.fillVertexListWithConnections(vertexCount, this.dimension, tileDataHolder);
 
         this.logAdjacencyListData(vertexCount);
     }
@@ -44,7 +44,7 @@ public class GraphAdjacencyListHolder {
     private void logAdjacencyListData(int vertexCount){
         log.info("Graph adjacency list data:{}", System.lineSeparator());
         for (int i = 0; i < vertexCount; i++) {
-            log.info("Vertex{}:{} {}{}", i, System.lineSeparator(), vertexLinksList.get(i), System.lineSeparator());
+            log.info("Vertex{}:{} {}{}", i, System.lineSeparator(), this.vertexLinksList.get(i), System.lineSeparator());
         }
     }
 
@@ -55,7 +55,7 @@ public class GraphAdjacencyListHolder {
         IntStream.iterate(0, i -> i + 1)
                 .limit(vertexCount)
                 .forEach(value -> {
-                    vertexLinksList.add(new ArrayList<>(MAX_LINKS));
+                    this.vertexLinksList.add(new ArrayList<>(MAX_LINKS));
                 });
     }
 
@@ -129,10 +129,10 @@ public class GraphAdjacencyListHolder {
 
     public int heuristic(int vertexAIndex, int vertexBIndex) {
         int aX = getVertexRowByIndexAndDimension(vertexAIndex, this.dimension);
-        int aY = vertexAIndex - aX * dimension;
+        int aY = vertexAIndex - aX * this.dimension;
 
         int bX = getVertexRowByIndexAndDimension(vertexBIndex, this.dimension);
-        int bY = vertexBIndex - bX * dimension;
+        int bY = vertexBIndex - bX * this.dimension;
 
         return Math.abs(aX - bX) + Math.abs(aY - bY);
     }
